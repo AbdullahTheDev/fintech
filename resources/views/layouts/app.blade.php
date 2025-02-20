@@ -24,7 +24,7 @@
         }
 
         body {
-            background: linear-gradient(85deg, #141750 0%, #2a2b5f 25%, #f1695c 100%);
+            background: linear-gradient(85deg, #072833 0%, #2a2b5f 25%, #32F3E8 100%);
             color: var(--primary-color);
             position: relative;
             font-family: var(--body-font);
@@ -256,7 +256,7 @@
             }
 
             body {
-                background: linear-gradient(165deg, #101346 0%, #2a2b5f 35%, #fa6737 100%);
+                background: linear-gradient(165deg, #072833 0%, #2a2b5f 35%, #32F3E8 100%);
             }
 
             .top-logo {

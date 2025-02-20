@@ -1,11 +1,14 @@
 @extends('layouts.app') 
 
 @section('content')
+<div class="top-logo">
+    <img src="{{ asset('logo.webp') }}" alt="Company Logo">
+</div>
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card shadow-lg border-0 rounded-lg">
-                <div class="card-header bg-primary text-white text-center py-3">
+                <div style="background-color: #04546F;" class="card-header text-white text-center py-3">
                     <h3 class="mb-0">Submit Your Information</h3>
                 </div>
                 <div class="card-body p-4">
@@ -151,15 +154,15 @@
                             @enderror
                         </div>
 
-                        <!-- Funding Requirements -->
+                        <!-- Services you require -->
                         <div class="mb-3">
-                            <label class="form-label">Funding you require</label>
+                            <label class="form-label">Services you require</label>
                             <div>
-                                <label><input type="radio" name="funding" value="less_250k" required {{ old('funding') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
-                                <label><input type="radio" name="funding" value="250k_500k" required {{ old('funding') == '250k_500k' ? 'checked' : '' }}> $250K - $500K</label>
-                                <label><input type="radio" name="funding" value="more_5m" required {{ old('funding') == 'more_5m' ? 'checked' : '' }}> More than $5M</label>
+                                <label><input type="radio" name="services" value="less_250k" required {{ old('services') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
+                                <label><input type="radio" name="services" value="250k_500k" required {{ old('services') == '250k_500k' ? 'checked' : '' }}> $250K - $500K</label>
+                                <label><input type="radio" name="services" value="more_5m" required {{ old('services') == 'more_5m' ? 'checked' : '' }}> More than $5M</label>
                             </div>
-                            @error('funding')
+                            @error('services')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
