@@ -121,38 +121,103 @@
 
                     <div class="section-card">
                         <!-- Business Type -->
-                        <div class="mb-3">
-                            <label class="form-label">Business Type</label>
-                            <div>
-                                <label><input type="radio" name="business_type" value="private" required
-                                        {{ old('business_type') == 'private' ? 'checked' : '' }}> Private Limited
-                                    Company</label>
-                                <label><input type="radio" name="business_type" value="public" required
-                                        {{ old('business_type') == 'public' ? 'checked' : '' }}> Public Listed
-                                    Company</label>
-                                <label><input type="radio" name="business_type" value="partnership" required
-                                        {{ old('business_type') == 'partnership' ? 'checked' : '' }}>
-                                    Partnership</label>
-                                <label><input type="radio" name="business_type" value="sole" required
-                                        {{ old('business_type') == 'sole' ? 'checked' : '' }}> Sole
-                                    Proprietorship</label>
+                        <!-- Business Type -->
+                        <div class="mb-4">
+                            <h6 class="form-label fw-bold mb-3">Business Type</h6>
+                            <div class="row g-2">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="business_type"
+                                            id="business_type_private" value="private" required
+                                            {{ old('business_type') == 'private' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="business_type_private">
+                                            Private Limited Company
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="business_type"
+                                            id="business_type_public" value="public" required
+                                            {{ old('business_type') == 'public' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="business_type_public">
+                                            Public Listed Company
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="business_type"
+                                            id="business_type_partnership" value="partnership" required
+                                            {{ old('business_type') == 'partnership' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="business_type_partnership">
+                                            Partnership
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="business_type"
+                                            id="business_type_sole" value="sole" required
+                                            {{ old('business_type') == 'sole' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="business_type_sole">
+                                            Sole Proprietorship
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             @error('business_type')
-                                <span class="text-danger">{{ $message }}</span>
+                                <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <!-- Net Worth -->
-                        <div class="mb-3">
-                            <label class="form-label">Your Net Worth</label>
-                            <div>
-                                <label><input type="radio" name="net_worth" value="less_250k" required
-                                        {{ old('net_worth') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
-                                <label><input type="radio" name="net_worth" value="more_250k" required
-                                        {{ old('net_worth') == 'more_250k' ? 'checked' : '' }}> At least $250K</label>
+                        <div class="mb-4">
+                            <h6 class="form-label fw-bold mb-3">Your Net Worth (Assets minus liabilities)</h6>
+                            <div class="row g-2">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="net_worth"
+                                            id="net_worth_less_250k" value="less_250k" required
+                                            {{ old('net_worth') == 'less_250k' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="net_worth_less_250k">
+                                            Less than $250K
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="net_worth"
+                                            id="net_worth_more_250k" value="more_250k" required
+                                            {{ old('net_worth') == 'more_250k' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="net_worth_more_250k">
+                                            At least $250K
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="net_worth"
+                                            id="net_worth_not_sure" value="not_sure" required
+                                            {{ old('net_worth') == 'not_sure' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="net_worth_not_sure">
+                                            I am not sure
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="net_worth"
+                                            id="net_worth_other" value="other" required
+                                            {{ old('net_worth') == 'other' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="net_worth_other">
+                                            Other
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             @error('net_worth')
-                                <span class="text-danger">{{ $message }}</span>
+                                <div class="text-danger mt-2">{{ $message }}</div>
                             @enderror
                         </div>
 

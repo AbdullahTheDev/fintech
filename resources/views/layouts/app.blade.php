@@ -15,8 +15,8 @@
     <style>
         :root {
             --primary-color: #101346;
-            --secondary-color: #f1695c;
-            --accent-color: #f1695c;
+            --secondary-color: #16c4bb;
+            --accent-color: #16c4bb;
             --background-color: #f8f9fa;
             --card-background: rgba(255, 255, 255, 0.92);
             --heading-font: 'Space Grotesk', sans-serif;
@@ -41,7 +41,7 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100vh;
-            background-image: url('{{ asset('logo.webp') }}');
+            background-image: url('{{ asset('logo-10.png') }}');
             background-repeat: no-repeat;
             background-position: center;
             background-size: 90%;
