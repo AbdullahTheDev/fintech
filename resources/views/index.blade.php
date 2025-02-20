@@ -120,105 +120,118 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- Business Type -->
-                    <div class="mb-3">
-                        <label class="form-label">Business Type</label>
-                        <div>
-                            <label><input type="radio" name="business_type" value="private" required
-                                    {{ old('business_type') == 'private' ? 'checked' : '' }}> Private Limited
-                                Company</label>
-                            <label><input type="radio" name="business_type" value="public" required
-                                    {{ old('business_type') == 'public' ? 'checked' : '' }}> Public Listed
-                                Company</label>
-                            <label><input type="radio" name="business_type" value="partnership" required
-                                    {{ old('business_type') == 'partnership' ? 'checked' : '' }}>
-                                Partnership</label>
-                            <label><input type="radio" name="business_type" value="sole" required
-                                    {{ old('business_type') == 'sole' ? 'checked' : '' }}> Sole
-                                Proprietorship</label>
+
+                    <div class="section-card">
+                        <!-- Business Type -->
+                        <div class="mb-3">
+                            <label class="form-label">Business Type</label>
+                            <div>
+                                <label><input type="radio" name="business_type" value="private" required
+                                        {{ old('business_type') == 'private' ? 'checked' : '' }}> Private Limited
+                                    Company</label>
+                                <label><input type="radio" name="business_type" value="public" required
+                                        {{ old('business_type') == 'public' ? 'checked' : '' }}> Public Listed
+                                    Company</label>
+                                <label><input type="radio" name="business_type" value="partnership" required
+                                        {{ old('business_type') == 'partnership' ? 'checked' : '' }}>
+                                    Partnership</label>
+                                <label><input type="radio" name="business_type" value="sole" required
+                                        {{ old('business_type') == 'sole' ? 'checked' : '' }}> Sole
+                                    Proprietorship</label>
+                            </div>
+                            @error('business_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @error('business_type')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
 
-                    <!-- Net Worth -->
-                    <div class="mb-3">
-                        <label class="form-label">Your Net Worth</label>
-                        <div>
-                            <label><input type="radio" name="net_worth" value="less_250k" required
-                                    {{ old('net_worth') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
-                            <label><input type="radio" name="net_worth" value="more_250k" required
-                                    {{ old('net_worth') == 'more_250k' ? 'checked' : '' }}> At least $250K</label>
+                        <!-- Net Worth -->
+                        <div class="mb-3">
+                            <label class="form-label">Your Net Worth</label>
+                            <div>
+                                <label><input type="radio" name="net_worth" value="less_250k" required
+                                        {{ old('net_worth') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
+                                <label><input type="radio" name="net_worth" value="more_250k" required
+                                        {{ old('net_worth') == 'more_250k' ? 'checked' : '' }}> At least $250K</label>
+                            </div>
+                            @error('net_worth')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @error('net_worth')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
 
-                    <!-- Credit Beacon Score -->
-                    <div class="mb-3">
-                        <label for="credit_score" class="form-label">Your Credit Beacon Score</label>
-                        <input type="text" class="form-control" id="credit_score" name="credit_score"
-                            value="{{ old('credit_score') }}" required>
-                        @error('credit_score')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
 
-                    <!-- Personal Income -->
-                    <div class="mb-3">
-                        <label for="personal_income" class="form-label">Declared Personal Income for 2023</label>
-                        <input type="number" class="form-control" id="personal_income" name="personal_income"
-                            value="{{ old('personal_income') }}" required>
-                        @error('personal_income')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
 
-                    <!-- File Upload -->
-                    <div class="mb-3">
-                        <label for="documents" class="form-label">Upload Related Documents</label>
-                        <input type="file" class="form-control" id="documents" name="documents[]" multiple>
-                        @error('documents')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <!-- Services you require -->
-                    <div class="mb-3">
-                        <label class="form-label">Services you require</label>
-                        <div>
-                            <label><input type="radio" name="services" value="less_250k" required
-                                    {{ old('services') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
-                            <label><input type="radio" name="services" value="250k_500k" required
-                                    {{ old('services') == '250k_500k' ? 'checked' : '' }}> $250K - $500K</label>
-                            <label><input type="radio" name="services" value="more_5m" required
-                                    {{ old('services') == 'more_5m' ? 'checked' : '' }}> More than $5M</label>
+                        <!-- Credit Beacon Score -->
+                        <div class="mb-3">
+                            <label for="credit_score" class="form-label">Your Credit Beacon Score</label>
+                            <input type="text" class="form-control" id="credit_score" name="credit_score"
+                                value="{{ old('credit_score') }}" required>
+                            @error('credit_score')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @error('services')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+
+                        <!-- Personal Income -->
+                        <div class="mb-3">
+                            <label for="personal_income" class="form-label">Declared Personal Income for 2023</label>
+                            <input type="number" class="form-control" id="personal_income" name="personal_income"
+                                value="{{ old('personal_income') }}" required>
+                            @error('personal_income')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
 
-                    <!-- Purpose -->
-                    <div class="mb-3">
-                        <label for="purpose" class="form-label">If you want to give more detailed information,
-                            write here</label>
-                        <textarea class="form-control" id="purpose" name="purpose">{{ old('purpose') }}</textarea>
-                        @error('purpose')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                    <div class="section-card">
+
+                        <!-- File Upload -->
+                        <div class="mb-3">
+                            <label for="documents" class="form-label">Upload Related Documents</label>
+                            <input type="file" class="form-control" id="documents" name="documents[]" multiple>
+                            @error('documents')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                     </div>
 
-                    <!-- Date -->
-                    <div class="mb-3">
-                        <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" name="date"
-                            value="{{ old('date') }}" required>
-                        @error('date')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                    <div class="section-card">
+
+                        <!-- Services you require -->
+                        <div class="mb-3">
+                            <label class="form-label">Services you require</label>
+                            <div>
+                                <label><input type="radio" name="services" value="less_250k" required
+                                        {{ old('services') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
+                                <label><input type="radio" name="services" value="250k_500k" required
+                                        {{ old('services') == '250k_500k' ? 'checked' : '' }}> $250K - $500K</label>
+                                <label><input type="radio" name="services" value="more_5m" required
+                                        {{ old('services') == 'more_5m' ? 'checked' : '' }}> More than $5M</label>
+                            </div>
+                            @error('services')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <!-- Purpose -->
+                        <div class="mb-3">
+                            <label for="purpose" class="form-label">If you want to give more detailed information,
+                                write here</label>
+                            <textarea class="form-control" id="purpose" name="purpose">{{ old('purpose') }}</textarea>
+                            @error('purpose')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <!-- Date -->
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" name="date"
+                                value="{{ old('date') }}" required>
+                            @error('date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                     </div>
 
                     <!-- Submit -->
