@@ -26,14 +26,12 @@
                                     @enderror
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="last_name" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="last_name" name="last_name"
-                                            value="{{ old('last_name') }}" required>
-                                        @error('last_name')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+                                    <label for="last_name" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name"
+                                        value="{{ old('last_name') }}" required>
+                                    @error('last_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -162,22 +160,25 @@
 
                         <!-- Credit Beacon Score -->
                         <div class="mb-3">
-                            <label for="credit_score" class="form-label">Your Credit Beacon Score</label>
-                            <input type="text" class="form-control" id="credit_score" name="credit_score"
-                                value="{{ old('credit_score') }}" required>
-                            @error('credit_score')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <!-- Personal Income -->
-                        <div class="mb-3">
-                            <label for="personal_income" class="form-label">Declared Personal Income for 2023</label>
-                            <input type="number" class="form-control" id="personal_income" name="personal_income"
-                                value="{{ old('personal_income') }}" required>
-                            @error('personal_income')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <label for="credit_score" class="form-label">Your Credit Beacon Score</label>
+                                    <input type="text" class="form-control" id="credit_score" name="credit_score"
+                                        value="{{ old('credit_score') }}" required>
+                                    @error('credit_score')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="personal_income" class="form-label">Declared Personal Income for
+                                        2023</label>
+                                    <input type="number" class="form-control" id="personal_income"
+                                        name="personal_income" value="{{ old('personal_income') }}" required>
+                                    @error('personal_income')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                     </div>
 
