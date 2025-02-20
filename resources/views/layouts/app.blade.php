@@ -41,7 +41,7 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100vh;
-            background-image: url('{{ asset('logos/unique_logo_white.png') }}');
+            background-image: url('{{ asset('logo.webp') }}');
             background-repeat: no-repeat;
             background-position: center;
             background-size: 90%;
@@ -89,6 +89,11 @@
             padding: 30px;
             position: relative;
             z-index: 1001;
+        }
+        .card_header{
+            background-color: #04546F;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(252, 252, 252, 0.299);
         }
 
         .form-label {
