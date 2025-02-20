@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubmitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::post('/submit', [SubmitController::class, 'submit'])->name('form.submit');
