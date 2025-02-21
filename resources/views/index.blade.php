@@ -7,7 +7,7 @@
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card_header text-white text-center py-3 mb-4">
+                <div class="card_header text-white text-center py-3">
                     <h3 class="mb-0">Submit Your Information</h3>
                 </div>
                 <form action="{{ route('form.submit') }}" method="POST" enctype="multipart/form-data">

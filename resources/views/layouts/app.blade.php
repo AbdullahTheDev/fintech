@@ -14,7 +14,7 @@
         rel="stylesheet">
     <style>
         :root {
-            --primary-color: #101346;
+            --primary-color: #fff;
             --secondary-color: #16c4bb;
             --accent-color: #16c4bb;
             --background-color: #f8f9fa;
@@ -24,27 +24,28 @@
         }
 
         body {
-            background: linear-gradient(85deg, #072833 0%, #2a2b5f 25%, #32F3E8 100%);
+            /* background: linear-gradient(85deg, #072833 0%, #2a2b5f 25%, #32F3E8 100%); */
             color: var(--primary-color);
             position: relative;
             font-family: var(--body-font);
             min-height: 100vh;
             font-size: 15px;
             line-height: 1.6;
+            background-position: bottom;
+            background-image: url('{{ asset('bg.png') }}');
         }
 
         body::before {
             content: '';
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0%;
+            left: 0%;
+            /* transform: translate(-50%, -50%); */
             width: 100%;
             height: 100vh;
-            background-image: url('{{ asset('logo-10.png') }}');
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 90%;
+            background-size: 100%;
             opacity: 0.7;
             pointer-events: none;
             z-index: 1000;
@@ -93,7 +94,9 @@
         .card_header{
             background-color: #04546F;
             border-radius: 6px;
-            box-shadow: 0 3px 6px rgba(252, 252, 252, 0.299);
+            /* box-shadow: 0 3px 6px rgba(252, 252, 252, 0.299); */
+            border: 1px solid #2DF2E6;
+            margin-bottom: 45px;
         }
 
         .form-label {
@@ -105,10 +108,12 @@
         }
 
         .form-control {
-            border: 1px solid #dee2e6;
+            border: 1px solid #2DF2E6;
             border-radius: 6px;
             padding: 10px 15px;
             transition: all 0.3s ease;
+            background: #1F4254;
+            color: var(--primary-color);
         }
 
         .form-control:focus {
@@ -132,11 +137,13 @@
             letter-spacing: 0.03em;
             text-transform: uppercase;
             font-size: 0.9rem;
-            background-color: var(--primary-color);
-            border: none;
+            background-color: transparent;
+            border: 2px solid #2DF2E6;
             padding: 12px 30px;
-            border-radius: 6px;
+            border-radius: 22px;
             transition: all 0.3s ease;
+            width: 30%;
+            margin: auto;
         }
 
         .btn-primary:hover {
@@ -145,11 +152,11 @@
         }
 
         .section-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: #154661;
             border-radius: 12px;
             padding: 20px 30px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 45px;
+            border: 1px solid #2DF2E6;
             z-index: 1001;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(16, 19, 70, 0.1);
