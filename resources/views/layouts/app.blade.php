@@ -283,6 +283,9 @@
                 zoom: 0.8;
                 padding: 9px 18px;
             }
+            .btn-primary{
+                width: 100%;
+            }
         }
     </style>
 
