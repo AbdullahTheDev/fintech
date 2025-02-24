@@ -51,8 +51,8 @@ class SubmitController extends Controller
             $filename = null;
             $filePath = [];
 
+            $filePaths = []; // Array to store file paths
             if ($request->hasFile('documents')) {
-                $filePaths = []; // Array to store file paths
             
                 foreach ($request->file('documents') as $file) {
                     $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
