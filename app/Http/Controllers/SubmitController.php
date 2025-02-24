@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\briefMail;
 use App\Models\BriefForm;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -99,7 +100,7 @@ class SubmitController extends Controller
         $pdf->setPaper('A4', 'portrait');
 
         // Download or Stream the PDF
-        return $pdf->download('questionnaire.pdf'); // Use ->download('filename.pdf') to download instead
+        return $pdf->download('finance_digital_brief_' . $id . '.pdf'); // Use ->download('filename.pdf') to download instead
     }
 
     public function generateID($prefix)

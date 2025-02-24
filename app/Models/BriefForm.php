@@ -10,4 +10,6 @@ class BriefForm extends Model
     use HasFactory;
 
     protected $table = 'brief_forms';
+
+    protected $fillable = ['content', 'images', 'custom_id'];
 }

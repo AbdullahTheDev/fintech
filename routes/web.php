@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/brief-form', [SubmitController::class, 'briefForm'])->name('brief.form');
 Route::post('/submit', [SubmitController::class, 'briefSubmit'])->name('form.submit');
 
+Route::get('/thankyou', [SubmitController::class, 'thanks'])->name("thanks");
 
 Route::get('/generate-pdf/{id}/{table}', [SubmitController::class, 'generatePdf'])->name('generate.pdf');
 

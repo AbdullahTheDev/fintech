@@ -9,6 +9,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
@@ -91,7 +92,8 @@
             position: relative;
             z-index: 1001;
         }
-        .card_header{
+
+        .card_header {
             background-color: #04546F;
             border-radius: 6px;
             /* box-shadow: 0 3px 6px rgba(252, 252, 252, 0.299); */
@@ -283,7 +285,8 @@
                 zoom: 0.8;
                 padding: 9px 18px;
             }
-            .btn-primary{
+
+            .btn-primary {
                 width: 100%;
             }
         }
@@ -293,6 +296,39 @@
 
 <body>
     @yield('content')
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            @if (session('success'))
+                toastr.success('{{ session('success') }}');
+            @endif
+
+            @if (session('error'))
+                toastr.error('{{ session('error') }}');
+            @endif
+
+            @if (session('warning'))
+                toastr.warning('{{ session('warning') }}');
+            @endif
+
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    toastr.warning('{{ $error }}');
+                @endforeach
+            @endif
+
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+            };
+        });
+    </script>
 </body>
+
 
 </html>
