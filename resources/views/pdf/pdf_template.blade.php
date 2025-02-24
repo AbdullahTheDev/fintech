@@ -46,6 +46,15 @@
 <body>
 
     @foreach ($data as $key => $dt)
+        @if ($key == 'services')
+            <p><strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong></p>
+            <ul>
+                @foreach ($dt as $service)
+                    <li>{{ ucfirst(str_replace('_', ' ', $service)) }}</li>
+                @endforeach
+            </ul>
+            @continue
+        @endif
         @php
             $title = str_replace('_', ' ', $key);
         @endphp
@@ -53,8 +62,8 @@
     @endforeach
 
     <h4>Reference Images(s)</h4>
-    <br/>
-    <br/>
+    <br />
+    <br />
     @if (!empty($filePaths))
         @foreach ($filePaths as $img)
             <img src="data:image/png;base64,<?php echo base64_encode(file_get_contents(base_path('public/' . $img))); ?>" style="width: 250px; margin: 10px;">
