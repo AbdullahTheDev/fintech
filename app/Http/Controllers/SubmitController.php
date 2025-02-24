@@ -24,7 +24,7 @@ class SubmitController extends Controller
         ]);
 
         try {
-            $data = $request->except('_token', 'logo_source_files');
+            $data = $request->except('_token', 'documents');
 
             // Convert to JSON
             $briefFormJson = json_encode($data);
@@ -48,18 +48,20 @@ class SubmitController extends Controller
             $filename = null;
             $filePath = [];
 
-            if ($request->hasFile('logo_source_files')) {
-                // Get the uploaded file
-                $file = $request->file('logo_source_files');
-
-                $filename = time() . '.' . $file->getClientOriginalExtension();
-
-                $path = $file->move(public_path('uploads/logos'), $filename); // Creates a 'logos' directory if it doesn't exist
-
-                $filePath[] = 'uploads/logos/' . $filename;
-                $form->images = $filePath;
+            if ($request->hasFile('documents')) {
+                $filePaths = []; // Array to store file paths
+            
+                foreach ($request->file('documents') as $file) {
+                    $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('uploads/documents'), $filename);
+                    $filePaths[] = 'uploads/documents/' . $filename;
+                }
+            
+                // Save file paths as JSON if storing in a single column
+                $form->images = json_encode($filePaths);
                 $form->save();
             }
+            
 
             Mail::to('dev@uniquelogodesigns.com')->send(new briefMail($briefForm, $filename, $customId));
 

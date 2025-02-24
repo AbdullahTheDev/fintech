@@ -13,12 +13,17 @@ class briefMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $data;
+    public $filename;
+    public $customId;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($data, $filename, $customId)
     {
-        //
+        $this->data = $data;
+        $this->filename = $filename;
+        $this->customId = $customId;
     }
 
     /**
@@ -27,7 +32,7 @@ class briefMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Brief Mail',
+            subject: 'Brief Form Submission',
         );
     }
 
@@ -37,7 +42,8 @@ class briefMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'email.brief_form',
+            with: [$this->data, $this->filename, $this->customId]
         );
     }
 

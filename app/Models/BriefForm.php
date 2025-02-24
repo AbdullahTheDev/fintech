@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BriefForm extends Model
 {
     use HasFactory;
+
+    protected $table = 'brief_forms';
 }
