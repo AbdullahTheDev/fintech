@@ -266,12 +266,14 @@
                         <div class="mb-3">
                             <label class="form-label">Services you require</label>
                             <div>
-                                <label><input type="radio" name="services" value="less_250k" required
-                                        {{ old('services') == 'less_250k' ? 'checked' : '' }}> Less than $250K</label>
-                                <label><input type="radio" name="services" value="250k_500k" required
-                                        {{ old('services') == '250k_500k' ? 'checked' : '' }}> $250K - $500K</label>
-                                <label><input type="radio" name="services" value="more_5m" required
-                                        {{ old('services') == 'more_5m' ? 'checked' : '' }}> More than $5M</label>
+                                <select name="services" id="services" class="form-control" required multiple>
+                                    <option value="web_design_development">Web Design & Development</option>
+                                    <option value="digital_marketing">Digital marketing</option>
+                                    <option value="social_media_marketing">Social Media marketing</option>
+                                    <option value="brand_development">Brand Development</option>
+                                    <option value="content_writing">Creative Copywriting</option>
+                                    <option value="effective_marketing_collateral">Effective Marketing Collateral</option>
+                                </select>
                             </div>
                             @error('services')
                                 <span class="text-danger">{{ $message }}</span>
