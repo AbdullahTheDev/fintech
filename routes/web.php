@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/submit', [SubmitController::class, 'submit'])->name('form.submit');
+Route::get('/brief-form', [SubmitController::class, 'briefForm'])->name('brief.form');
+Route::post('/submit', [SubmitController::class, 'briefSubmit'])->name('form.submit');
