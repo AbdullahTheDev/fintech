@@ -12,17 +12,17 @@ use Illuminate\Queue\SerializesModels;
 class briefMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    
     public $data;
-    public $filename;
+    public $filePaths;
     public $customId;
     /**
      * Create a new message instance.
      */
-    public function __construct($data, $filename, $customId)
+    public function __construct($data, $filePaths, $customId)
     {
         $this->data = $data;
-        $this->filename = $filename;
+        $this->filePaths = $filePaths;
         $this->customId = $customId;
     }
 
@@ -43,7 +43,7 @@ class briefMail extends Mailable
     {
         return new Content(
             view: 'email.brief_form',
-            with: [$this->data, $this->filename, $this->customId]
+            with: [$this->data, $this->filePaths, $this->customId]
         );
     }
 

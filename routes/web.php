@@ -20,3 +20,14 @@ Route::get('/', function () {
 
 Route::get('/brief-form', [SubmitController::class, 'briefForm'])->name('brief.form');
 Route::post('/submit', [SubmitController::class, 'briefSubmit'])->name('form.submit');
+
+
+Route::get('/generate-pdf/{id}/{table}', [SubmitController::class, 'generatePdf'])->name('generate.pdf');
+
+Route::get('/search-pdf/{id?}', [SubmitController::class, 'searchView'])->name('search.view');
+Route::post('/search-pdf', [SubmitController::class, 'searchPdf'])->name('search.pdf');
+
+
+
+
+

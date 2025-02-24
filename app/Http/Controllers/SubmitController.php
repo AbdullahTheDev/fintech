@@ -63,11 +63,111 @@ class SubmitController extends Controller
             }
             
 
-            Mail::to('dev@uniquelogodesigns.com')->send(new briefMail($briefForm, $filename, $customId));
+            Mail::to('dev@uniquelogodesigns.com')->send(new briefMail($briefForm, $filePaths, $customId));
 
             return redirect(route("thanks"))->with('success', 'Brief form submitted successfully');
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    function thanks()
+    {
+        return view('thanks');
+    }
+
+    // Just for streak
+
+    public function generatePdf($id, $table)
+    {
+        // return $table;
+        $table = 'App\Models\\' . $table;
+
+        $data = $table::findOrFail($id);
+
+        // return $data;
+        $filePaths = [];
+        // Example Logo File Name (adjust logic if necessary)
+        $filePaths = json_decode($data->images, true); // $data->images;
+
+        // return $data->images;
+        $data = json_decode($data->content, true);
+
+        $pdf = Pdf::loadView('pdf.pdf_template', compact('data', 'filePaths'));
+
+        // Set Paper Size & Orientation (Optional)
+        $pdf->setPaper('A4', 'portrait');
+
+        // Download or Stream the PDF
+        return $pdf->download('questionnaire.pdf'); // Use ->download('filename.pdf') to download instead
+    }
+
+    public function generateID($prefix)
+    {
+        if (!preg_match('/^[A-Z]{2}$/', $prefix)) {
+            return response()->json(['error' => 'Invalid prefix. Must be 2 uppercase letters.'], 400);
+        }
+
+        // Generate 6-digit random number
+        $randomNumber = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
+
+        // Combine prefix and number
+        $customID = $prefix . $randomNumber;
+
+        return response()->json(['customID' => $customID]);
+    }
+
+    // Function to fetch initials from custom ID
+    public function fetch($length, $customID)
+    {
+        if (!is_numeric($length) || $length <= 0 || $length > strlen($customID)) {
+            return response()->json(['error' => 'Invalid length provided.'], 400);
+        }
+
+        // Extract the initials
+        $initials = substr($customID, 0, $length);
+
+        return response()->json(['initials' => $initials]);
+    }
+
+    public function searchView($id = null)
+    {
+        return view('search.index', compact('id'));
+    }
+
+    public function searchPdf(Request $request)
+    {
+        $customID = $request->input('customID');
+
+        $prefix = substr($customID, 0, 2);
+
+        $prefix = strtoupper($prefix);
+
+        // Map prefixes to tables
+        $tableMap = [
+            'AA' => BriefForm::class,
+        ];
+
+        $tableName = $tableMap[$prefix] ?? 'unknown';
+
+        if ($tableName == 'unknown') {
+            return response()->json(['error' => 'PDF not found.'], 404);
+        }
+
+        try {
+            $pdf = $tableName::where('custom_id', $customID)->first();
+
+            if ($pdf === null) {
+                return response()->json(['error' => 'PDF not found.'], 404);
+            }
+
+            $url = route('generate.pdf', ['id' => $pdf->id, 'table' => class_basename($tableName)]);
+
+            return response()->json([
+                'url' => $url
+            ]);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
         }
     }
 }
