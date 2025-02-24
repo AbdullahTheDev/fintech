@@ -266,7 +266,7 @@
                         <div class="mb-3">
                             <label class="form-label">Services you require</label>
                             <div>
-                                <select name="services" id="services" class="form-control" required multiple>
+                                <select name="services[]" id="services" class="form-control" required multiple>
                                     <option value="web_design_development">Web Design & Development</option>
                                     <option value="digital_marketing">Digital marketing</option>
                                     <option value="social_media_marketing">Social Media marketing</option>

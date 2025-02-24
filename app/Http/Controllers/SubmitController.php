@@ -27,6 +27,8 @@ class SubmitController extends Controller
         try {
             $data = $request->except('_token', 'documents');
 
+            $data['services'] = $request->has('services') ? $request->input('services') : [];
+
             // Convert to JSON
             $briefFormJson = json_encode($data);
 
